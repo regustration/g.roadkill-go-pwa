@@ -15,7 +15,7 @@
 
 <script>
 import { uniqWith } from 'lodash/uniqWith'
-import { isEqual } from  'lodash/isEqual'
+import { isEqual } from 'lodash/isEqual'
 
 export default {
   name: 'home',
@@ -24,10 +24,10 @@ export default {
       userMarker: null,
       coords: [],
       isWatch: false,
-      watchId:null,
-      trackId:'',
-      trackingData:[],
-      trackInfo:{
+      watchId: null,
+      trackId: '',
+      trackingData: [],
+      trackInfo: {
         totalDistance: []
       },
       zoom: 13,
@@ -46,9 +46,11 @@ export default {
       const coords = this.getLocation
       const currLoc = coords[coords.length - 1]
       const prevLoc = coords[coords.length - 2]
-      return prevLoc && currLoc
-        ? this.trackInfo.totalDistance += this.gpsDistance(prevLoc.lat, prevLoc.lng, currLoc.lat, currLoc.lng)
-        : null
+      if (prevLoc && currLoc) {
+        this.trackInfo.totalDistance += this.gpsDistance(prevLoc.lat, prevLoc.lng, currLoc.lat, currLoc.lng)
+        return this.trackInfo.totalDistance
+      }
+      return null
     }
   },
   methods: {
@@ -68,7 +70,7 @@ export default {
       this.watchId = navigator.geolocation.watchPosition(
         position =>
           this.addMarker(position.coords.latitude, position.coords.longitude),
-        err => console.log(err),
+        err => console.warn(err),
         {
           enableHighAccuracy: true,
           timeout: 3000,
@@ -79,9 +81,9 @@ export default {
     },
     addMarker (lat, lng) {
       const map = this.$refs.leaflet.mapObject
-      if (this.userMarker)
+      if (this.userMarker) {
         map.removeLayer(this.userMarker)
-
+      }
       const L = window.L
       this.coords.push(L.latLng(lat, lng))
       this.userMarker = L.marker(L.latLng(lat, lng)).addTo(map)
@@ -90,16 +92,16 @@ export default {
       map.addLayer(line)
       map.panTo([lat, lng], 18)
     },
-    gpsDistance(lat1, lng1, lat2, lng2) {
+    gpsDistance (lat1, lng1, lat2, lng2) {
       // http://www.movable-type.co.uk/scripts/latlong.html
       const R = 6371 // km
-      const dLat = (lat2-lat1) * (Math.PI / 180)
-      const dLng = (lng2-lng1) * (Math.PI / 180)
+      const dLat = (lat2 - lat1) * (Math.PI / 180)
+      const dLng = (lng2 - lng1) * (Math.PI / 180)
       lat1 = lat1 * (Math.PI / 180)
       lat2 = lat2 * (Math.PI / 180)
-      let a = Math.sin(dLat/2) * Math.sin(dLat/2) +
-          Math.sin(dLng/2) * Math.sin(dLng/2) * Math.cos(lat1) * Math.cos(lat2)
-      let c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1-a))
+      let a = Math.sin(dLat / 2) * Math.sin(dLat / 2) +
+          Math.sin(dLng / 2) * Math.sin(dLng / 2) * Math.cos(lat1) * Math.cos(lat2)
+      let c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a))
       let d = R * c
       return d
     }
