@@ -32,7 +32,7 @@ export default {
       },
       zoom: 13,
       center: window.L.latLng(47.413220, -1.219482),
-      url: 'http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',
+      url: 'https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',
       attribution: '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors',
       marker: window.L.latLng(47.413220, -1.219482),
       text: 'this is a marker'
