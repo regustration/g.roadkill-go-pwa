@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/3.6.3/workbox-sw.js");
 
 importScripts(
-  "/g.roadkill-go-pwa/precache-manifest.10fbbe8fb72fd0a7810ffefbaa328e34.js"
+  "/g.roadkill-go-pwa/precache-manifest.746f6df5cd23bd3075248237ddf88d34.js"
 );
 
 workbox.core.setCacheNameDetails({prefix: "g.roadkill-go-pwa"});

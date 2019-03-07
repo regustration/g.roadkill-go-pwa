@@ -4,27 +4,27 @@ self.__precacheManifest = [
     "url": "/g.roadkill-go-pwa/robots.txt"
   },
   {
-    "revision": "a844b09756a558833274",
-    "url": "/g.roadkill-go-pwa/js/chunk-vendors.22ea2a72.js"
+    "revision": "9012b0a167bd6580d30b",
+    "url": "/g.roadkill-go-pwa/js/chunk-vendors.07d0661c.js"
   },
   {
-    "revision": "478d01fa0a8b7526f6a4",
-    "url": "/g.roadkill-go-pwa/js/app.d54d242a.js"
+    "revision": "a8c2d9f4d09cfeb3160a",
+    "url": "/g.roadkill-go-pwa/js/app.56236838.js"
   },
   {
     "revision": "48af24cd7dae7280ac56",
     "url": "/g.roadkill-go-pwa/js/about.41d636ee.js"
   },
   {
-    "revision": "b18f0296f9ae72ef9c855848983b2e97",
+    "revision": "4415aaab65d1413a9546826b377c3037",
     "url": "/g.roadkill-go-pwa/index.html"
   },
   {
-    "revision": "a844b09756a558833274",
+    "revision": "9012b0a167bd6580d30b",
     "url": "/g.roadkill-go-pwa/css/chunk-vendors.2c7f3eba.css"
   },
   {
-    "revision": "478d01fa0a8b7526f6a4",
-    "url": "/g.roadkill-go-pwa/css/app.96bf15fe.css"
+    "revision": "a8c2d9f4d09cfeb3160a",
+    "url": "/g.roadkill-go-pwa/css/app.ce078b69.css"
   }
 ];
